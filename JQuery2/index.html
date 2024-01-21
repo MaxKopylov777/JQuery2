@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <h1>Найдите логические пары </h1>
+    <h2>Кликай по первой картинке и затем кликай по паре которая связанна с ней. Например картинка собака и поводок</h2>
+    <div class="list-images">
+        <div class="wrap-img" data-para="4">
+            <img src="images/8.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="6">
+            <img src="images/11.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="2">
+            <img src="images/4.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="1">
+            <img src="images/2.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="5">
+            <img src="images/9.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="2">
+            <img src="images/3.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="3">
+            <img src="images/6.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="4">
+            <img src="images/7.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="7">
+            <img src="images/14.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="5">
+            <img src="images/10.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="6">
+            <img src="images/12.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="7">
+            <img src="images/13.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="1">
+            <img src="images/1.jpg" alt="">
+        </div>
+        <div class="wrap-img" data-para="3">
+            <img src="images/5.jpg" alt="">
+        </div>
+    </div>
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+    <script>
+        $(document).ready(function() { 
+        let selectedImage = null; 
+ 
+        $('.wrap-img').on('click', function() { 
+        let $this = $(this); 
+        let currentPara = $this.data('para'); 
+ 
+        if (selectedImage === null) { 
+        selectedImage = $this; 
+        } else if (selectedImage.data('para') === currentPara) { 
+        $('.wrap-img').filter(function() { 
+        return $(this).data('para') === currentPara; 
+        }).remove(); 
+ 
+        selectedImage = null; 
+        } else { 
+        alert("Не пара!"); 
+        selectedImage = null; 
+        } 
+      }); 
+    });
+ 
+</script> 
+
+</body>
+</html>
